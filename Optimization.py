@@ -1,4 +1,13 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC This notebook is based on: https://dspy.ai/tutorials/entity_extraction/
+# MAGIC
+# MAGIC Useful resources are:
+# MAGIC - https://dspy.ai/learn/
+# MAGIC - https://github.com/stanfordnlp/dspy/blob/main/dspy/signatures/signature.py#L150
+
+# COMMAND ----------
+
 # MAGIC %pip install dspy datasets
 
 # COMMAND ----------
@@ -127,6 +136,10 @@ evaluate_correctness(optimized_sentiment_analyzer)
 
 # COMMAND ----------
 
+evaluate_correctness(optimized_sentiment_analyzer, devset=train_set)
+
+# COMMAND ----------
+
 optimized_sentiment_analyzer.save("optimized_sentiment_analyzer.json")
 
 # COMMAND ----------
@@ -136,3 +149,7 @@ optimized_sentiment_analyzer(review=test_set[0].review)
 # COMMAND ----------
 
 sentiment_analyzer.save("original.json")
+
+# COMMAND ----------
+
+
